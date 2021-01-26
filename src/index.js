@@ -2,11 +2,26 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Connexion from './components/Connexion'
+import reportWebVitals from './reportWebVitals'
+import NotFound from './components/NotFound'
+
+
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+
+const Root = () => (
+  <Router>
+    <Switch>
+      <Route exact path="/" component={Connexion}/>
+      <Route path="/pseudo/:pseudo" component={App} />
+      <Route component={NotFound} />
+    </Switch>
+  </Router>
+)
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Root />
   </React.StrictMode>,
   document.getElementById('root')
 );
